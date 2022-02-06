@@ -3,11 +3,11 @@ package ru.dedus.simplemicroservice.exception;
 /**
  * Ошибки возникшие в бизнес логике сервиса
  */
-public class BusinessLogigServiceException extends ServiceException {
+public class LogigServiceException extends ServiceException {
     /**
      * Исключения бизнес логики
      */
-    public BusinessLogigServiceException() {
+    public LogigServiceException() {
         super();
     }
 
@@ -15,7 +15,7 @@ public class BusinessLogigServiceException extends ServiceException {
      * Исключения бизнес логики
      * @param message Сообщение
      */
-    public BusinessLogigServiceException(String message) {
+    public LogigServiceException(String message) {
         super(message);
     }
 }

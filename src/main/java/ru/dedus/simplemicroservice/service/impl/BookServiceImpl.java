@@ -2,7 +2,7 @@ package ru.dedus.simplemicroservice.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.dedus.simplemicroservice.exception.BusinessLogigServiceException;
+import ru.dedus.simplemicroservice.exception.LogigServiceException;
 import ru.dedus.simplemicroservice.model.BookDTO;
 import ru.dedus.simplemicroservice.repository.BookRepository;
 import ru.dedus.simplemicroservice.service.BookService;
@@ -21,25 +21,25 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public BookDTO read(Long id) throws BusinessLogigServiceException {
+    public BookDTO read(Long id) throws LogigServiceException {
         if (!bookRepository.hasId(id)){
-            throw new BusinessLogigServiceException(String.format(OBJECT_BY_ID_NOT_FOUND, id));
+            throw new LogigServiceException(String.format(OBJECT_BY_ID_NOT_FOUND, id));
         }
         return bookRepository.read(id);
     }
 
     @Override
-    public void update(BookDTO book) throws BusinessLogigServiceException {
+    public void update(BookDTO book) throws LogigServiceException {
         if (!bookRepository.hasId(book.getId())){
-            throw new BusinessLogigServiceException(String.format(OBJECT_BY_ID_NOT_FOUND, book.getId()));
+            throw new LogigServiceException(String.format(OBJECT_BY_ID_NOT_FOUND, book.getId()));
         }
         bookRepository.update(book);
     }
 
     @Override
-    public void delete(Long id) throws BusinessLogigServiceException {
+    public void delete(Long id) throws LogigServiceException {
         if (!bookRepository.hasId(id)){
-            throw new BusinessLogigServiceException(String.format(OBJECT_BY_ID_NOT_FOUND, id));
+            throw new LogigServiceException(String.format(OBJECT_BY_ID_NOT_FOUND, id));
         }
         bookRepository.delete(id);
     }
